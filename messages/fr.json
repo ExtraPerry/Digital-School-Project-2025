@@ -6,6 +6,46 @@
   "Pages": {
     "Home": {
       "title": "Ceci est la Page Principale."
+    },
+    "Login": {
+      "title": "Se connecter",
+      "subtitle": "Entrez vos identifiants pour accéder à votre compte",
+      "email": "Email",
+      "password": "Mot de passe",
+      "signIn": "Se connecter",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "signUp": "S'inscrire",
+      "forgotPassword": "Mot de passe oublié ?"
+    },
+    "Register": {
+      "title": "Créer un compte",
+      "subtitle": "Remplissez vos informations pour créer un nouveau compte",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "phone": "Numéro de téléphone",
+      "address": "Adresse",
+      "createAccount": "Créer le compte",
+      "hasAccount": "Vous avez déjà un compte ?",
+      "signIn": "Se connecter"
     }
+  },
+  "Form": {
+    "required": "Ce champ est obligatoire",
+    "invalidEmail": "Veuillez entrer une adresse email valide",
+    "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+    "passwordsDoNotMatch": "Les mots de passe ne correspondent pas",
+    "nameTooShort": "Le nom doit contenir au moins 2 caractères",
+    "phoneTooShort": "Le numéro de téléphone doit contenir au moins 10 caractères",
+    "addressTooShort": "L'adresse doit contenir au moins 5 caractères"
+  },
+  "Messages": {
+    "loginSuccess": "Connexion réussie !",
+    "loginError": "Échec de la connexion. Veuillez vérifier vos identifiants.",
+    "signupSuccess": "Compte créé avec succès ! Veuillez vérifier votre email pour confirmer votre compte.",
+    "signupError": "Échec de la création du compte. Veuillez réessayer.",
+    "emailAlreadyExists": "Un compte avec cet email existe déjà."
   }
 }

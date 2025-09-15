@@ -1,0 +1,115 @@
+"use client"
+
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useTranslations } from "next-intl"
+import { useRouter } from "next/navigation"
+import Link from "next/link"
+import { toast } from "sonner"
+
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { LoginFormSchema, type LoginFormData } from "@/types/supabase/zod-schema/login-form-schema"
+import login from "@/lib/supabase/auth/login"
+
+export default function LoginPage() {
+  const t = useTranslations()
+  const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false)
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(LoginFormSchema),
+  })
+
+  const onSubmit = async (data: LoginFormData) => {
+    setIsLoading(true)
+    try {
+      const result = await login(data)
+      
+      if (result.error) {
+        toast.error(result.error)
+      } else {
+        toast.success(t("Messages.loginSuccess"))
+        router.push("/")
+        router.refresh()
+      }
+    } catch {
+      toast.error(t("Messages.loginError"))
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  return (
+    <main className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8">
+        <Card>
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl text-center">
+              {t("Pages.Login.title")}
+            </CardTitle>
+            <CardDescription className="text-center">
+              {t("Pages.Login.subtitle")}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="email">{t("Pages.Login.email")}</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  {...register("email")}
+                  disabled={isLoading}
+                />
+                {errors.email && (
+                  <p className="text-sm text-red-600">{errors.email.message}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="password">{t("Pages.Login.password")}</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  {...register("password")}
+                  disabled={isLoading}
+                />
+                {errors.password && (
+                  <p className="text-sm text-red-600">{errors.password.message}</p>
+                )}
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={isLoading}
+              >
+                {isLoading ? "Signing in..." : t("Pages.Login.signIn")}
+              </Button>
+
+              <div className="text-center text-sm">
+                <span className="text-gray-600">{t("Pages.Login.noAccount")} </span>
+                <Link
+                  href="/register"
+                  className="font-medium text-primary hover:underline"
+                >
+                  {t("Pages.Login.signUp")}
+                </Link>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </main>
+  )
+} 

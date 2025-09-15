@@ -5,7 +5,7 @@ import { Database } from "@/types/supabase/database.types";
 import {
   SignupFormData,
   SignupFormSchema,
-} from "@/types/supabase/zod-schema/signup-form-shema";
+} from "@/types/supabase/zod-schema/signup-form-schema";
 
 type User = Database["public"]["Tables"]["users"]["Row"];
 type UserId = Pick<User, "id" | "email">;

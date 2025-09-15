@@ -6,6 +6,46 @@
   "Pages": {
     "Home": {
       "title": "This is the Home Page."
+    },
+    "Login": {
+      "title": "Sign In",
+      "subtitle": "Enter your credentials to access your account",
+      "email": "Email",
+      "password": "Password",
+      "signIn": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "forgotPassword": "Forgot your password?"
+    },
+    "Register": {
+      "title": "Create Account",
+      "subtitle": "Fill in your information to create a new account",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "phone": "Phone Number",
+      "address": "Address",
+      "createAccount": "Create Account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in"
     }
+  },
+  "Form": {
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "nameTooShort": "Name must be at least 2 characters",
+    "phoneTooShort": "Phone number must be at least 10 characters",
+    "addressTooShort": "Address must be at least 5 characters"
+  },
+  "Messages": {
+    "loginSuccess": "Successfully signed in!",
+    "loginError": "Failed to sign in. Please check your credentials.",
+    "signupSuccess": "Account created successfully! Please check your email to verify your account.",
+    "signupError": "Failed to create account. Please try again.",
+    "emailAlreadyExists": "An account with this email already exists."
   }
 }
