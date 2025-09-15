@@ -9,6 +9,7 @@ import { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "@/components/ui/sonner";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default async function LocaleLayout({
               disableTransitionOnChange
             >
               {children}
+              <Toaster />
               <ReactQueryDevtools initialIsOpen={false} />
             </ThemeProvider>
           </NextIntlClientProvider>
