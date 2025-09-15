@@ -1,0 +1,11 @@
+{
+  "Metadata": {
+    "title": "Digital School Project",
+    "description": "Ceci est le Digital School Project."
+  },
+  "Pages": {
+    "Home": {
+      "title": "Ceci est la Page Principale."
+    }
+  }
+}
