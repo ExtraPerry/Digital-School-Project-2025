@@ -14,40 +14,236 @@ export type Database = {
   }
   public: {
     Tables: {
+      partner_station: {
+        Row: {
+          address: string
+          created_at: string
+          filled_slots: number
+          id: string
+          is_open: boolean
+          max_slots: number
+          name: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          address: string
+          created_at?: string
+          filled_slots: number
+          id?: string
+          is_open?: boolean
+          max_slots: number
+          name: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          filled_slots?: number
+          id?: string
+          is_open?: boolean
+          max_slots?: number
+          name?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "partner_station_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      rental_history: {
+        Row: {
+          created_at: string
+          end_location: string
+          end_time: string
+          id: string
+          scooter_id: string | null
+          start_location: string
+          start_time: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          end_location: string
+          end_time: string
+          id?: string
+          scooter_id?: string | null
+          start_location: string
+          start_time: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          end_location?: string
+          end_time?: string
+          id?: string
+          scooter_id?: string | null
+          start_location?: string
+          start_time?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rental_history_scooter_id_fkey"
+            columns: ["scooter_id"]
+            isOneToOne: false
+            referencedRelation: "scooter"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "rental_history_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      scooter: {
+        Row: {
+          created_at: string
+          current_assigned_user: string | null
+          current_location: string
+          current_partner_station: string | null
+          current_station: string | null
+          current_status: Database["public"]["Enums"]["scooter_status"]
+          id: string
+          model: string | null
+          reference_number: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_assigned_user?: string | null
+          current_location: string
+          current_partner_station?: string | null
+          current_station?: string | null
+          current_status: Database["public"]["Enums"]["scooter_status"]
+          id?: string
+          model?: string | null
+          reference_number?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_assigned_user?: string | null
+          current_location?: string
+          current_partner_station?: string | null
+          current_station?: string | null
+          current_status?: Database["public"]["Enums"]["scooter_status"]
+          id?: string
+          model?: string | null
+          reference_number?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "scooter_current_assigned_user_fkey"
+            columns: ["current_assigned_user"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "scooter_current_partner_station_fkey"
+            columns: ["current_partner_station"]
+            isOneToOne: false
+            referencedRelation: "partner_station"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "scooter_current_station_fkey"
+            columns: ["current_station"]
+            isOneToOne: false
+            referencedRelation: "station"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      station: {
+        Row: {
+          address: string
+          created_at: string
+          filled_slot: number
+          id: string
+          is_open: boolean
+          max_slots: number
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          address: string
+          created_at: string
+          filled_slot: number
+          id?: string
+          is_open?: boolean
+          max_slots: number
+          name: string
+          updated_at: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          filled_slot?: number
+          id?: string
+          is_open?: boolean
+          max_slots?: number
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       users: {
         Row: {
+          address: string | null
           auth_user_id: string | null
           created_at: string
+          email: string | null
+          first_name: string | null
           id: string
-          role_id: string | null
+          is_partner: boolean
+          last_name: string | null
+          phone: string | null
           updated_at: string
           username: string | null
         }
         Insert: {
+          address?: string | null
           auth_user_id?: string | null
           created_at?: string
+          email?: string | null
+          first_name?: string | null
           id?: string
-          role_id?: string | null
+          is_partner?: boolean
+          last_name?: string | null
+          phone?: string | null
           updated_at?: string
           username?: string | null
         }
         Update: {
+          address?: string | null
           auth_user_id?: string | null
           created_at?: string
+          email?: string | null
+          first_name?: string | null
           id?: string
-          role_id?: string | null
+          is_partner?: boolean
+          last_name?: string | null
+          phone?: string | null
           updated_at?: string
           username?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "users_role_id_fkey"
-            columns: ["role_id"]
-            isOneToOne: false
-            referencedRelation: "users_role"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       users_role: {
         Row: {
@@ -56,6 +252,7 @@ export type Database = {
           id: string
           role: Database["public"]["Enums"]["app_roles"]
           updated_at: string
+          user_id: string | null
         }
         Insert: {
           auth_user_id: string
@@ -63,6 +260,7 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_roles"]
           updated_at?: string
+          user_id?: string | null
         }
         Update: {
           auth_user_id?: string
@@ -70,8 +268,17 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_roles"]
           updated_at?: string
+          user_id?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "users_role_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
@@ -82,6 +289,14 @@ export type Database = {
     }
     Enums: {
       app_roles: "ADMIN" | "DEFAULT_USER"
+      scooter_status:
+        | "IS_AT_STATION"
+        | "IS_UNDER_WAY_TO_STATION"
+        | "IS_STORED_IN_DEPOT"
+        | "IS_UNDER_MAINTENANCE"
+        | "IS_UNDER_RECOVERY"
+        | "IS_MISSPLACED"
+        | "IS_LOST"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -210,6 +425,15 @@ export const Constants = {
   public: {
     Enums: {
       app_roles: ["ADMIN", "DEFAULT_USER"],
+      scooter_status: [
+        "IS_AT_STATION",
+        "IS_UNDER_WAY_TO_STATION",
+        "IS_STORED_IN_DEPOT",
+        "IS_UNDER_MAINTENANCE",
+        "IS_UNDER_RECOVERY",
+        "IS_MISSPLACED",
+        "IS_LOST",
+      ],
     },
   },
 } as const

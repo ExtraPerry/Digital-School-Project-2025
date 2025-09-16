@@ -1,11 +1,49 @@
 {
   "Metadata": {
-    "title": "Digital School Project",
-    "description": "Ceci est le Digital School Project."
+    "title": "Zypp",
+    "description": "Zypp - Service de location de trottinettes électriques à Montpellier. Trottinettes électriques en libre-service 24h/24 pour la mobilité urbaine."
   },
   "Pages": {
     "Home": {
-      "title": "Ceci est la Page Principale."
+      "title": "Bienvenue chez Zypp",
+      "subtitle": "La mobilité électrique réinventée pour Montpellier",
+      "motto": "Roulez vers l'avenir, une trottinette à la fois",
+      "hero": {
+        "title": "Trottinettes Électriques pour Montpellier",
+        "subtitle": "Disponibles 24h/24, sans borne d'attache",
+        "description": "Zypp apporte la mobilité urbaine durable à Montpellier avec notre flotte de 1000 trottinettes électriques. Déverrouillez simplement avec votre smartphone et roulez partout dans la ville."
+      },
+      "services": {
+        "title": "Comment ça marche",
+        "step1": {
+          "title": "Trouver & Déverrouiller",
+          "description": "Localisez une trottinette près de vous avec notre app et déverrouillez-la avec votre smartphone"
+        },
+        "step2": {
+          "title": "Rouler",
+          "description": "Profitez de votre trajet dans les rues de Montpellier"
+        },
+        "step3": {
+          "title": "Garer & Verrouiller",
+          "description": "Garez dans une zone désignée et verrouillez la trottinette via l'app"
+        }
+      },
+      "pricing": {
+        "title": "Tarifs Simples",
+        "unlock": "1€ pour déverrouiller",
+        "perMinute": "0,15€ par minute",
+        "example": "Un trajet de 15 minutes coûte seulement 3,25€"
+      },
+      "charging": {
+        "title": "Rejoignez notre programme de recharge",
+        "description": "Gagnez de l'argent en rechargeant les trottinettes à domicile",
+        "benefits": "Soyez payé pour la recharge ou profitez de tarifs préférentiels"
+      },
+      "download": {
+        "title": "Téléchargez l'application",
+        "subtitle": "Disponible sur iOS et Android",
+        "comingSoon": "Disponible en janvier 2025"
+      }
     },
     "Login": {
       "title": "Se connecter",
@@ -20,13 +58,10 @@
     "Register": {
       "title": "Créer un compte",
       "subtitle": "Remplissez vos informations pour créer un nouveau compte",
-      "firstName": "Prénom",
-      "lastName": "Nom",
       "email": "Email",
+      "username": "Nom d'utilisateur",
       "password": "Mot de passe",
       "confirmPassword": "Confirmer le mot de passe",
-      "phone": "Numéro de téléphone",
-      "address": "Adresse",
       "createAccount": "Créer le compte",
       "hasAccount": "Vous avez déjà un compte ?",
       "signIn": "Se connecter"

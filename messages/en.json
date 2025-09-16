@@ -1,11 +1,49 @@
 {
   "Metadata": {
-    "title": "Digital School Project",
-    "description": "This is the Digital School Project."
+    "title": "Zypp",
+    "description": "Zypp - Electric scooter rental service in Montpellier. 24/7 free-floating electric scooters for urban mobility."
   },
   "Pages": {
     "Home": {
-      "title": "This is the Home Page."
+      "title": "Welcome to Zypp",
+      "subtitle": "Electric mobility reimagined for Montpellier",
+      "motto": "Ride the future, one scooter at a time",
+      "hero": {
+        "title": "Electric Scooters for Montpellier",
+        "subtitle": "Available 24/7, no docking stations required",
+        "description": "Zypp brings sustainable urban mobility to Montpellier with our fleet of 1000 electric scooters. Simply unlock with your smartphone and ride anywhere in the city."
+      },
+      "services": {
+        "title": "How it works",
+        "step1": {
+          "title": "Find & Unlock",
+          "description": "Locate a scooter near you using our app and unlock it with your smartphone"
+        },
+        "step2": {
+          "title": "Ride",
+          "description": "Enjoy your journey through Montpellier's streets"
+        },
+        "step3": {
+          "title": "Park & Lock",
+          "description": "Park in any designated zone and lock the scooter via the app"
+        }
+      },
+      "pricing": {
+        "title": "Simple Pricing",
+        "unlock": "€1.00 to unlock",
+        "perMinute": "€0.15 per minute",
+        "example": "A 15-minute ride costs only €3.25"
+      },
+      "charging": {
+        "title": "Join our charging program",
+        "description": "Earn money by charging scooters at home",
+        "benefits": "Get paid for charging or enjoy discounted rides"
+      },
+      "download": {
+        "title": "Download the app",
+        "subtitle": "Available on iOS and Android",
+        "comingSoon": "Coming January 2025"
+      }
     },
     "Login": {
       "title": "Sign In",
@@ -20,13 +58,10 @@
     "Register": {
       "title": "Create Account",
       "subtitle": "Fill in your information to create a new account",
-      "firstName": "First Name",
-      "lastName": "Last Name",
       "email": "Email",
+      "username": "Username",
       "password": "Password",
       "confirmPassword": "Confirm Password",
-      "phone": "Phone Number",
-      "address": "Address",
       "createAccount": "Create Account",
       "hasAccount": "Already have an account?",
       "signIn": "Sign in"

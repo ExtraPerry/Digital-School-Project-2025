@@ -1,102 +1,101 @@
 "use server";
 
 import createSupabaseServerAdmin from "@/lib/supabase/createSupabaseServerAdmin";
+import createSupabaseServerClient from "@/lib/supabase/createSupabaseServerClient";
 import { Database } from "@/types/supabase/database.types";
-import {
-  SignupFormData,
-  SignupFormSchema,
-} from "@/types/supabase/zod-schema/signup-form-schema";
 
-type User = Database["public"]["Tables"]["users"]["Row"];
-type UserId = Pick<User, "id" | "email">;
+// type UserRow = Database["public"]["Tables"]["users"]["Row"];
 type UserInsert = Database["public"]["Tables"]["users"]["Insert"];
-type UserRoleInsert = Database["public"]["Tables"]["users_role"]["Insert"];
+type UserUpdate = Database["public"]["Tables"]["users"]["Update"];
 
-export default async function signup(
-  data: SignupFormData
-): Promise<{ data?: UserId; error?: string }> {
-  const result = SignupFormSchema.safeParse(data);
-  if (!result.success) {
-    return {
-      error: `Les informations envoyé au server ne sont pas conformes [${result.error.message}]`,
+export type SignupProps = Pick<
+  UserInsert,
+  "username" | "first_name" | "last_name" | "phone" | "address"
+> & {
+  email: string;
+  password: string;
+};
+
+export type SignupResult =
+  | {
+      data: true;
+      error: undefined;
+    }
+  | {
+      data: undefined;
+      error: string;
     };
-  }
 
+export async function signup({
+  username,
+  first_name,
+  last_name,
+  email,
+  phone,
+  address,
+  password,
+}: SignupProps): Promise<SignupResult> {
   const supabaseAdmin = await createSupabaseServerAdmin();
 
-  const { count: emailCheckCount } = await supabaseAdmin
-    .from("users")
-    .select("email")
-    .eq("email", result.data.email)
-    .maybeSingle();
+  const {
+    data: { user },
+    error: userError,
+  } = await supabaseAdmin.auth.admin.createUser({ email: email, password: password, email_confirm: false });
 
-  if (emailCheckCount != null && emailCheckCount > 0) {
+  if (!user || userError) {
     return {
-      error: "L'email est déjà utilisé."
-    }
+      data: undefined,
+      error:
+        `Error failed to create Auth user account, please try again later. [${userError?.message}]`,
+    };
   }
 
-  const { data: authUser, error: authError } = await supabaseAdmin.auth.signUp({
-    email: result.data.email,
-    password: result.data.password,
+  if (!(username || first_name || last_name || phone || address)) {
+    await supabaseAdmin.auth.admin.generateLink({
+      type: "signup",
+      email: email,
+      password: password,
+    });
+
+    return {
+      data: true,
+      error: undefined,
+    };
+  }
+
+  const userUpdate: UserUpdate = {
+    username: username,
+    first_name: first_name,
+    last_name: last_name,
+    phone: phone,
+    address: address,
+  };
+
+  const { error: userRowError } = await supabaseAdmin
+    .from("users")
+    .update(userUpdate)
+    .eq("auth_user_id", user.id);
+
+  if (userRowError) {
+    await supabaseAdmin.from("users").delete().eq("auth_user_id", user.id);
+    await supabaseAdmin.from("users_role").delete().eq("auth_user_id", user.id);
+    await supabaseAdmin.auth.admin.deleteUser(user.id);
+
+    return {
+      data: undefined,
+      error:
+        `Error failed to add user info as such could not create Auth user account, please try again later. [${userRowError.message}]`,
+    };
+  }
+
+  await supabaseAdmin.auth.admin.generateLink({
+    type: "signup",
+    email: email,
+    password: password,
   });
 
-  if (authError || authUser.user === null || authUser.user.id === null) {
-    return {
-      error:
-        "Il y a eu une erreur pendant la création du compte, ressayé dans quelques minutes ou contacter le service informatique.",
-    };
-  }
-
-  const userDataInsert: UserInsert = {
-    auth_user: authUser.user.id,
-    first_name: result.data.firstName,
-    last_name: result.data.lastName,
-    email: result.data.email,
-    phone: result.data.phone,
-    address: result.data.address,
+  return {
+    data: true,
+    error: undefined,
   };
-  const { data: userData, error: userError } = await supabaseAdmin
-    .from("users")
-    .insert(userDataInsert)
-    .select("id,email")
-    .single();
-
-  if (!userData || userError) {
-    await supabaseAdmin.auth.admin.deleteUser(authUser.user.id);
-    return {
-      error:
-        "Le compte n'a pas pu être créer, car l'information complémentaire n'a pas pu être enregistrer.",
-    };
-  }
-  
-  const userId = userData.id;
-
-  if (!userId) {
-    await supabaseAdmin.auth.admin.deleteUser(authUser.user.id);
-    return {
-      error:
-        "Le compte n'a pas pu être créer, car le serveur n'a pas pu récupérer l'id du compte créé par le base de donnée.",
-    };
-  }
-
-  const userRoleInsert: UserRoleInsert = {
-    user: userId,
-    auth_user: authUser.user.id,
-    role: "BROKER",
-  };
-
-  const { error: roleError } = await supabaseAdmin
-    .from("users_role")
-    .insert(userRoleInsert);
-
-  if (roleError) {
-    await supabaseAdmin.auth.admin.deleteUser(authUser.user.id);
-    return {
-      error:
-        "Le compte n'a pas pu être créer, car le role utilisateur n'a pas pu être enregistrer.",
-    };
-  }
-
-  return { data: userData };
 }
