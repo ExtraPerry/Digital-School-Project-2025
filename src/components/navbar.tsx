@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useAuthenticatedUser } from "@/hooks/use-authenticated-user";
 import logout from "@/lib/supabase/auth/logout";
 import { Tables } from "@/types/supabase/database.types";
+import Image from "next/image";
 
 export default function Navbar() {
   const t = useTranslations("Pages");
@@ -28,7 +29,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo/Brand */}
-          <div className="flex-shrink-0">
+          <div className="flex items-center space-x-2">
+            <Image
+              src="/bumb.png" // ⚠️ mets ton fichier ici
+              alt="Zypp Logo"
+              width={32}
+              height={32}
+              className="rounded-md"
+              priority
+            />
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
               Zypp
             </h1>
