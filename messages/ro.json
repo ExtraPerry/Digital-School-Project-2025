@@ -1,0 +1,86 @@
+{
+  "Metadata": {
+    "title": "Zypp",
+    "description": "Zypp - Serviciu de închiriere trotinete electrice în Montpellier. Trotinete electrice disponibile non-stop pentru mobilitate urbană."
+  },
+  "Pages": {
+    "Home": {
+      "title": "Bun venit la Zypp",
+      "subtitle": "Mobilitatea electrică reinventată pentru Montpellier",
+      "motto": "Mergi spre viitor, o trotinetă pe rând",
+      "hero": {
+        "title": "Trotinete electrice pentru Montpellier",
+        "subtitle": "Disponibile 24/24, fără stație de andocare",
+        "description": "Zypp aduce mobilitatea urbană durabilă la Montpellier cu flota noastră de 1000 de trotinete electrice. Deblochează simplu cu smartphone-ul și mergi oriunde în oraș."
+      },
+      "services": {
+        "title": "Cum funcționează",
+        "step1": {
+          "title": "Găsește & Deblochează",
+          "description": "Localizează o trotinetă aproape de tine cu aplicația noastră și deblocheaz-o cu smartphone-ul"
+        },
+        "step2": {
+          "title": "Mergi",
+          "description": "Bucură-te de drum prin străzile din Montpellier"
+        },
+        "step3": {
+          "title": "Parchează & Blochează",
+          "description": "Parchează într-o zonă desemnată și blochează trotineta prin aplicație"
+        }
+      },
+      "pricing": {
+        "title": "Tarife simple",
+        "unlock": "1€ pentru deblocare",
+        "perMinute": "0,15€ pe minut",
+        "example": "O cursă de 15 minute costă doar 3,25€"
+      },
+      "charging": {
+        "title": "Alătură-te programului nostru de încărcare",
+        "description": "Câștigă bani încărcând trotinetele acasă",
+        "benefits": "Primești bani pentru încărcare sau beneficiezi de tarife reduse"
+      },
+      "download": {
+        "title": "Descarcă aplicația",
+        "subtitle": "Disponibilă pe iOS și Android",
+        "comingSoon": "Disponibilă din ianuarie 2025"
+      }
+    },
+    "Login": {
+      "title": "Autentificare",
+      "subtitle": "Introdu datele pentru a intra în contul tău",
+      "email": "Email",
+      "password": "Parolă",
+      "signIn": "Conectează-te",
+      "noAccount": "Nu ai cont?",
+      "signUp": "Înregistrează-te",
+      "forgotPassword": "Ai uitat parola?"
+    },
+    "Register": {
+      "title": "Creează un cont",
+      "subtitle": "Completează datele pentru a-ți face un cont nou",
+      "email": "Email",
+      "username": "Nume utilizator",
+      "password": "Parolă",
+      "confirmPassword": "Confirmă parola",
+      "createAccount": "Creează contul",
+      "hasAccount": "Ai deja un cont?",
+      "signIn": "Conectează-te"
+    }
+  },
+  "Form": {
+    "required": "Acest câmp este obligatoriu",
+    "invalidEmail": "Te rugăm să introduci un email valid",
+    "passwordTooShort": "Parola trebuie să aibă cel puțin 8 caractere",
+    "passwordsDoNotMatch": "Parolele nu se potrivesc",
+    "nameTooShort": "Numele trebuie să aibă cel puțin 2 caractere",
+    "phoneTooShort": "Numărul de telefon trebuie să aibă cel puțin 10 caractere",
+    "addressTooShort": "Adresa trebuie să aibă cel puțin 5 caractere"
+  },
+  "Messages": {
+    "loginSuccess": "Conectare reușită!",
+    "loginError": "Eroare la conectare. Verifică datele introduse.",
+    "signupSuccess": "Cont creat cu succes! Verifică emailul pentru confirmare.",
+    "signupError": "Eroare la crearea contului. Încearcă din nou.",
+    "emailAlreadyExists": "Există deja un cont cu acest email."
+  }
+}
