@@ -31,15 +31,15 @@ export default function Navbar() {
           {/* Logo/Brand */}
           <div className="flex items-center space-x-2">
             <Image
-              src="/bumb.png" // ⚠️ mets ton fichier ici
+              src="/zypplogo.svg" // ⚠️ mets ton fichier ici
               alt="Zypp Logo"
-              width={32}
-              height={32}
+              width={65}
+              height={65}
               className="rounded-md"
               priority
             />
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Zypp
+              
             </h1>
           </div>
 

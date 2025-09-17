@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,6 +11,15 @@ import Image from "next/image";
 
 export default function Home() {
   const t = useTranslations("Pages.Home");
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // 👉 Remplace ce console.log/alert par ton appel API (Supabase, etc.)
+    console.log("Newsletter email:", email);
+    alert("Merci ! Vous êtes inscrit(e) à la newsletter.");
+    setEmail("");
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-900 dark:to-gray-800">
@@ -26,9 +38,8 @@ export default function Home() {
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Overlay pour lisibilité du texte (radial + linear) */}
+          {/* Overlay (radial + linear) */}
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(120%_80%_at_20%_40%,rgba(2,6,23,.85)_0%,rgba(2,6,23,.55)_50%,rgba(2,6,23,.25)_75%,transparent_100%)]" />
-          {/* Fondu bas pour transition harmonieuse */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-b from-transparent to-[rgba(17,24,39,0.85)]" />
         </div>
 
@@ -46,7 +57,6 @@ export default function Home() {
 
           {/* Download Section */}
           <div className="mt-10">
-            {/* Badge coming soon (remplace le <p> par un pill plus lisible) */}
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-white/90 text-sm font-medium shadow backdrop-blur-[2px]">
               {t("download.comingSoon")}
             </span>
@@ -85,7 +95,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Main Content (espacé du hero) */}
+      {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 mt-6 md:mt-12">
         {/* Hero Description */}
         <section className="mb-16">
@@ -100,7 +110,7 @@ export default function Home() {
               {t("hero.description")}
             </p>
 
-            {/* Images grid améliorée (ratio + hover subtil) */}
+            {/* Images grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { src: "/mtp1.jfif", alt: "Trottinettes en ville" },
@@ -217,6 +227,39 @@ export default function Home() {
             </CardContent>
           </Card>
         </section>
+
+        {/* ===== Newsletter section ===== */}
+        <section id="newsletter" className="mb-16">
+          <Card className="rounded-2xl shadow-lg bg-white/70 dark:bg-gray-800/60 backdrop-blur border border-black/5">
+            <CardHeader className="text-center">
+              <CardTitle className="text-3xl font-bold text-gray-900 dark:text-white">
+                Abonnez-vous à notre newsletter
+              </CardTitle>
+              <CardDescription className="text-lg text-gray-600 dark:text-gray-300">
+                Recevez les lancements, offres et actualités Zypp directement par e-mail.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Entrez votre adresse e-mail"
+                  className="w-full sm:w-[28rem] px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-white"
+                />
+                <Button type="submit" className="h-12 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white">
+                  S’inscrire
+                </Button>
+              </form>
+              <p className="mt-3 text-center text-xs text-gray-500 dark:text-gray-400">
+                En vous inscrivant, vous acceptez de recevoir des e-mails de Zypp. Vous pouvez vous désabonner à tout moment.
+              </p>
+            </CardContent>
+          </Card>
+        </section>
+        {/* ===== /Newsletter section ===== */}
       </main>
 
       {/* Footer */}
