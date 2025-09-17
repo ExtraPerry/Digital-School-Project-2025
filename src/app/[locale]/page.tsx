@@ -42,7 +42,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button 
                   size="lg" 
-                  className="bg-black text-white hover:bg-gray-800 px-8 py-4 h-auto opacity-100 cursor-not-allowed"
+                  className="bg-black text-white hover:bg-gray-800 px-8 py-4 h-auto opacity-100 cursor-pointer"
                 >
                   <AppleLogo className="w-6 h-6 mr-3" />
                   <div className="text-left">
@@ -53,7 +53,7 @@ export default function Home() {
                 
                 <Button 
                   size="lg" 
-                  className="bg-black text-white hover:bg-gray-800 px-8 py-4 h-auto opacity-100 cursor-not-allowed"
+                  className="bg-black text-white hover:bg-gray-800 px-8 py-4 h-auto opacity-100 cursor-pointer"
                 >
                   <GoogleLogo className="w-6 h-6 mr-3" />
                   <div className="text-left">

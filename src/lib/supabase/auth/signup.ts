@@ -1,7 +1,6 @@
 "use server";
 
 import createSupabaseServerAdmin from "@/lib/supabase/createSupabaseServerAdmin";
-import createSupabaseServerClient from "@/lib/supabase/createSupabaseServerClient";
 import { Database } from "@/types/supabase/database.types";
 
 // type UserRow = Database["public"]["Tables"]["users"]["Row"];
@@ -40,22 +39,21 @@ export async function signup({
   const {
     data: { user },
     error: userError,
-  } = await supabaseAdmin.auth.admin.createUser({ email: email, password: password, email_confirm: false });
+  } = await supabaseAdmin.auth.admin.createUser({
+    email: email,
+    password: password,
+    email_confirm: false,
+  });
 
   if (!user || userError) {
     return {
       data: undefined,
-      error:
-        `Error failed to create Auth user account, please try again later. [${userError?.message}]`,
+      error: `Error failed to create Auth user account, please try again later. [${userError?.message}]`,
     };
   }
 
   if (!(username || first_name || last_name || phone || address)) {
-    await supabaseAdmin.auth.admin.generateLink({
-      type: "signup",
-      email: email,
-      password: password,
-    });
+    await supabaseAdmin.auth.admin.inviteUserByEmail(email);
 
     return {
       data: true,
@@ -83,16 +81,11 @@ export async function signup({
 
     return {
       data: undefined,
-      error:
-        `Error failed to add user info as such could not create Auth user account, please try again later. [${userRowError.message}]`,
+      error: `Error failed to add user info as such could not create Auth user account, please try again later. [${userRowError.message}]`,
     };
   }
 
-  await supabaseAdmin.auth.admin.generateLink({
-    type: "signup",
-    email: email,
-    password: password,
-  });
+  await supabaseAdmin.auth.admin.inviteUserByEmail(email);
 
   return {
     data: true,
