@@ -58,69 +58,79 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main
+      className="min-h-screen flex items-center justify-center bg-cover bg-center py-12 px-4 sm:px-6 lg:px-8"
+      style={{ backgroundImage: "url('/tr.jpg')" }}
+    >
       <div className="max-w-md w-full space-y-8">
-        <Card>
+        <Card className="bg-gradient-to-br from-slate-900 to-gray-800 text-white shadow-lg border border-white/10">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl text-center">
+            <CardTitle className="text-2xl text-center text-white">
               {t("Pages.Register.title")}
             </CardTitle>
-            <CardDescription className="text-center">
+            <CardDescription className="text-center text-gray-300">
               {t("Pages.Register.subtitle")}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email">{t("Pages.Register.email")}</Label>
+                <Label htmlFor="email" className="text-gray-200">
+                  {t("Pages.Register.email")}
+                </Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="john@example.com"
                   {...register("email")}
                   disabled={isLoading}
+                  className="bg-gray-900/50 border border-gray-700 text-white placeholder-gray-400"
                 />
                 {errors.email && (
-                  <p className="text-sm text-red-600">{errors.email.message}</p>
+                  <p className="text-sm text-red-400">{errors.email.message}</p>
                 )}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="username">
+                <Label htmlFor="username" className="text-gray-200">
                   {t("Pages.Register.username")}{" "}
-                  <span className="text-gray-500 text-sm">(optional)</span>
+                  <span className="text-gray-400 text-sm">(optional)</span>
                 </Label>
                 <Input
                   id="username"
                   placeholder="johndoe"
                   {...register("username")}
                   disabled={isLoading}
+                  className="bg-gray-900/50 border border-gray-700 text-white placeholder-gray-400"
                 />
                 {errors.username && (
-                  <p className="text-sm text-red-600">
+                  <p className="text-sm text-red-400">
                     {errors.username.message}
                   </p>
                 )}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">{t("Pages.Register.password")}</Label>
+                <Label htmlFor="password" className="text-gray-200">
+                  {t("Pages.Register.password")}
+                </Label>
                 <Input
                   id="password"
                   type="password"
                   placeholder="Enter your password"
                   {...register("password")}
                   disabled={isLoading}
+                  className="bg-gray-900/50 border border-gray-700 text-white placeholder-gray-400"
                 />
                 {errors.password && (
-                  <p className="text-sm text-red-600">
+                  <p className="text-sm text-red-400">
                     {errors.password.message}
                   </p>
                 )}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword">
+                <Label htmlFor="confirmPassword" className="text-gray-200">
                   {t("Pages.Register.confirmPassword")}
                 </Label>
                 <Input
@@ -129,27 +139,32 @@ export default function RegisterPage() {
                   placeholder="Confirm your password"
                   {...register("confirmPassword")}
                   disabled={isLoading}
+                  className="bg-gray-900/50 border border-gray-700 text-white placeholder-gray-400"
                 />
                 {errors.confirmPassword && (
-                  <p className="text-sm text-red-600">
+                  <p className="text-sm text-red-400">
                     {errors.confirmPassword.message}
                   </p>
                 )}
               </div>
 
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                disabled={isLoading}
+              >
                 {isLoading
                   ? "Creating account..."
                   : t("Pages.Register.createAccount")}
               </Button>
 
               <div className="text-center text-sm">
-                <span className="text-gray-600">
+                <span className="text-gray-300">
                   {t("Pages.Register.hasAccount")}{" "}
                 </span>
                 <Link
                   href="/login"
-                  className="font-medium text-primary hover:underline"
+                  className="font-medium text-blue-400 hover:underline"
                 >
                   {t("Pages.Register.signIn")}
                 </Link>
