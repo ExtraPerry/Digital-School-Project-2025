@@ -5,7 +5,6 @@ import { Database } from "@/types/supabase/database.types";
 
 // type UserRow = Database["public"]["Tables"]["users"]["Row"];
 type UserInsert = Database["public"]["Tables"]["users"]["Insert"];
-type UserUpdate = Database["public"]["Tables"]["users"]["Update"];
 
 export type SignupProps = Pick<
   UserInsert,
@@ -61,7 +60,9 @@ export async function signup({
     };
   }
 
-  const userUpdate: UserUpdate = {
+  const userInsert: UserInsert = {
+    auth_user_id: user.id,
+    email: email,
     username: username,
     first_name: first_name,
     last_name: last_name,
@@ -71,8 +72,7 @@ export async function signup({
 
   const { error: userRowError } = await supabaseAdmin
     .from("users")
-    .update(userUpdate)
-    .eq("auth_user_id", user.id);
+    .insert(userInsert);
 
   if (userRowError) {
     await supabaseAdmin.from("users").delete().eq("auth_user_id", user.id);

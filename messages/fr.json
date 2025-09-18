@@ -65,7 +65,178 @@
       "createAccount": "Créer le compte",
       "hasAccount": "Vous avez déjà un compte ?",
       "signIn": "Se connecter"
+    },
+    "Settings": {
+      "personalInfo": {
+        "title": "Informations personnelles",
+        "description": "Gérez les détails de votre compte et vos informations de contact",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "email": "Adresse email",
+        "phone": "Numéro de téléphone",
+        "phonePlaceholder": "+33 6 12 34 56 78",
+        "edit": "Modifier",
+        "save": "Enregistrer",
+        "cancel": "Annuler"
+      },
+      "emergencyContact": {
+        "title": "Contact d'urgence",
+        "description": "Informations de contact pour les urgences pendant les trajets",
+        "contactName": "Nom du contact d'urgence",
+        "contactNamePlaceholder": "Nom complet du contact d'urgence",
+        "contactPhone": "Téléphone du contact d'urgence"
+      },
+      "paymentMethods": {
+        "title": "Moyens de paiement",
+        "description": "Gérez vos options de paiement pour les trajets",
+        "expires": "Expire le {date}",
+        "remove": "Supprimer",
+        "addNew": "Ajouter un nouveau moyen de paiement"
+      },
+      "preferences": {
+        "title": "Préférences",
+        "description": "Personnalisez votre expérience Zypp",
+        "pushNotifications": "Notifications push",
+        "pushNotificationsDesc": "Recevez des notifications sur les mises à jour et promotions",
+        "emailNotifications": "Notifications email",
+        "emailNotificationsDesc": "Recevez les reçus et mises à jour importantes par email",
+        "locationServices": "Services de localisation",
+        "locationServicesDesc": "Aidez-nous à trouver les trottinettes proches et suivre les trajets",
+        "enable": "Activer",
+        "enabled": "Activé"
+      },
+      "accountActions": {
+        "title": "Actions du compte",
+        "description": "Gérez le statut et les données de votre compte",
+        "downloadData": "Télécharger mes données",
+        "deactivateAccount": "Désactiver le compte",
+        "deleteAccount": "Supprimer le compte",
+        "deleteWarning": "La suppression du compte est permanente et ne peut pas être annulée. Toutes vos données seront définitivement supprimées de nos systèmes."
+      }
     }
+  },
+  "Navigation": {
+    "home": "Accueil",
+    "dashboard": "Tableau de bord",
+    "history": "Historique",
+    "partnerProgram": "Programme Partenaire",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "UserApp": {
+    "welcome": "Bon retour, {name} !",
+    "subtitle": "Gérez votre compte Zypp et votre historique de trajets",
+    "tabs": {
+      "settings": "Paramètres du compte",
+      "rentalHistory": "Historique des trajets"
+    },
+    "stats": {
+      "totalRides": "Total des trajets",
+      "totalTime": "Temps total",
+      "amountSpent": "Montant dépensé",
+      "thisMonth": "Ce mois-ci",
+      "ridingTime": "Temps de trajet"
+    },
+    "help": {
+      "title": "Besoin d'aide ?",
+      "description": "Contact d'urgence ou trottinette perdue ? Nous sommes là 24h/24",
+      "callSupport": "Appeler le support",
+      "liveChat": "Chat en direct"
+    }
+  },
+  "Settings": {
+    "personalInfo": {
+      "title": "Informations personnelles",
+      "description": "Gérez les détails de votre compte et vos informations de contact",
+      "username": "Nom d'utilisateur",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Adresse email",
+      "phone": "Numéro de téléphone",
+      "address": "Adresse",
+      "phonePlaceholder": "+33 6 12 34 56 78",
+      "usernamePlaceholder": "johndoe",
+      "addressPlaceholder": "123 Rue Principale, Ville, Pays",
+      "edit": "Modifier",
+      "save": "Enregistrer",
+      "cancel": "Annuler"
+    },
+    "emergencyContact": {
+      "title": "Contact d'urgence",
+      "description": "Informations de contact pour les urgences pendant les trajets",
+      "contactName": "Nom du contact d'urgence",
+      "contactNamePlaceholder": "Nom complet du contact d'urgence",
+      "contactPhone": "Téléphone du contact d'urgence"
+    },
+    "paymentMethods": {
+      "title": "Moyens de paiement",
+      "description": "Gérez vos options de paiement pour les trajets",
+      "expires": "Expire le {date}",
+      "remove": "Supprimer",
+      "addNew": "Ajouter un nouveau moyen de paiement"
+    },
+    "preferences": {
+      "title": "Préférences",
+      "description": "Personnalisez votre expérience Zypp",
+      "pushNotifications": "Notifications push",
+      "pushNotificationsDesc": "Recevez des notifications sur les mises à jour et promotions",
+      "emailNotifications": "Notifications email",
+      "emailNotificationsDesc": "Recevez les reçus et mises à jour importantes par email",
+      "locationServices": "Services de localisation",
+      "locationServicesDesc": "Aidez-nous à trouver les trottinettes proches et suivre les trajets",
+      "enable": "Activer",
+      "enabled": "Activé"
+    },
+    "accountActions": {
+      "title": "Actions du compte",
+      "description": "Gérez le statut et les données de votre compte",
+      "downloadData": "Télécharger mes données",
+      "deactivateAccount": "Désactiver le compte",
+      "deleteAccount": "Supprimer le compte",
+      "deleteWarning": "La suppression du compte est permanente et ne peut pas être annulée. Toutes vos données seront définitivement supprimées de nos systèmes."
+    }
+  },
+  "RentalHistory": {
+    "title": "Historique des trajets",
+    "description": "Consultez et recherchez dans vos trajets passés",
+    "stats": {
+      "totalRides": "Total des trajets",
+      "totalDistance": "Distance totale",
+      "totalSpent": "Montant total"
+    },
+    "filters": {
+      "searchPlaceholder": "Rechercher par lieu ou ID de trottinette...",
+      "allTime": "Tout",
+      "thisMonth": "Ce mois",
+      "thisWeek": "Cette semaine"
+    },
+    "ride": {
+      "rideNumber": "Trajet n°{id}",
+      "route": "Itinéraire",
+      "duration": "Durée",
+      "distance": "Distance",
+      "scooter": "Trottinette {id}",
+      "receipt": "Reçu",
+      "share": "Partager"
+    },
+    "empty": {
+      "title": "Aucun trajet trouvé",
+      "description": "Essayez d'ajuster vos termes de recherche",
+      "noRides": "Commencez votre premier trajet pour voir votre historique ici"
+    },
+    "loadMore": "Charger plus de trajets",
+    "export": {
+      "title": "Exporter l'historique",
+      "description": "Téléchargez votre historique de trajets pour vos dossiers",
+      "csv": "Exporter en CSV",
+      "pdf": "Exporter en PDF"
+    },
+    "generate": {
+      "button": "Générer un trajet aléatoire",
+      "loading": "Génération..."
+    },
+    "loadingMore": "Chargement en cours...",
+    "endOfHistory": "Vous avez atteint la fin de votre historique de trajets"
   },
   "Form": {
     "required": "Ce champ est obligatoire",
@@ -76,11 +247,81 @@
     "phoneTooShort": "Le numéro de téléphone doit contenir au moins 10 caractères",
     "addressTooShort": "L'adresse doit contenir au moins 5 caractères"
   },
+  "PartnerProgram": {
+    "title": "Programme Partenaire",
+    "subtitle": "Gérez vos stations partenaires et gagnez des revenus avec Zypp",
+    "requiresInfo": {
+      "title": "Complétez Votre Profil",
+      "description": "Pour participer au programme partenaire, veuillez compléter les informations de votre profil incluant prénom, nom, email, téléphone et adresse.",
+      "redirectButton": "Aller aux Paramètres",
+      "missingFields": "Informations manquantes requises : {fields}"
+    },
+    "stats": {
+      "totalStations": "Stations Totales",
+      "activeStations": "Stations Actives",
+      "totalSlots": "Emplacements Totaux",
+      "occupiedSlots": "Emplacements Occupés"
+    },
+    "stations": {
+      "title": "Vos Stations Partenaires",
+      "description": "Gérez vos stations de recharge et consultez les métriques de performance",
+      "addNew": "Ajouter Nouvelle Station",
+      "search": "Rechercher des stations...",
+      "status": {
+        "open": "Ouverte",
+        "closed": "Fermée"
+      },
+      "actions": {
+        "edit": "Modifier",
+        "delete": "Supprimer",
+        "view": "Voir Détails"
+      }
+    },
+    "addStation": {
+      "title": "Ajouter Nouvelle Station Partenaire",
+      "name": "Nom de la Station",
+      "namePlaceholder": "ex., Hub de Recharge Rue Principale",
+      "address": "Adresse",
+      "addressPlaceholder": "Adresse complète",
+      "maxSlots": "Emplacements Maximum",
+      "filledSlots": "Emplacements Actuellement Occupés",
+      "isOpen": "Station Ouverte",
+      "save": "Enregistrer Station",
+      "cancel": "Annuler"
+    },
+    "editStation": {
+      "title": "Modifier Station Partenaire",
+      "save": "Mettre à Jour Station",
+      "cancel": "Annuler"
+    },
+    "deleteStation": {
+      "title": "Supprimer Station",
+      "description": "Êtes-vous sûr de vouloir supprimer cette station ? Cette action ne peut pas être annulée.",
+      "confirm": "Supprimer",
+      "cancel": "Annuler"
+    },
+    "empty": {
+      "title": "Aucune station trouvée",
+      "description": "Commencez par ajouter votre première station partenaire pour commencer à générer des revenus.",
+      "addFirst": "Ajouter Votre Première Station"
+    },
+    "stationCard": {
+      "capacityLabel": "Capacité",
+      "slots": "emplacements",
+      "address": "Adresse",
+      "status": "Statut",
+      "createdAt": "Créée"
+    }
+  },
   "Messages": {
     "loginSuccess": "Connexion réussie !",
     "loginError": "Échec de la connexion. Veuillez vérifier vos identifiants.",
     "signupSuccess": "Compte créé avec succès ! Veuillez vérifier votre email pour confirmer votre compte.",
     "signupError": "Échec de la création du compte. Veuillez réessayer.",
-    "emailAlreadyExists": "Un compte avec cet email existe déjà."
+    "emailAlreadyExists": "Un compte avec cet email existe déjà.",
+    "partnerStationCreated": "Station partenaire créée avec succès !",
+    "partnerStationUpdated": "Station partenaire mise à jour avec succès !",
+    "partnerStationDeleted": "Station partenaire supprimée avec succès !",
+    "partnerStationError": "Échec de l'enregistrement de la station partenaire. Veuillez réessayer."
   }
 }

@@ -65,7 +65,178 @@
       "createAccount": "Create Account",
       "hasAccount": "Already have an account?",
       "signIn": "Sign in"
+    },
+    "Settings": {
+      "personalInfo": {
+        "title": "Personal Information",
+        "description": "Manage your account details and contact information",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "phonePlaceholder": "+33 6 12 34 56 78",
+        "edit": "Edit",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "emergencyContact": {
+        "title": "Emergency Contact",
+        "description": "Contact information for emergencies during rides",
+        "contactName": "Emergency Contact Name",
+        "contactNamePlaceholder": "Full name of emergency contact",
+        "contactPhone": "Emergency Contact Phone"
+      },
+      "paymentMethods": {
+        "title": "Payment Methods",
+        "description": "Manage your payment options for rides",
+        "expires": "Expires {date}",
+        "remove": "Remove",
+        "addNew": "Add New Payment Method"
+      },
+      "preferences": {
+        "title": "Preferences",
+        "description": "Customize your Zypp experience",
+        "pushNotifications": "Push Notifications",
+        "pushNotificationsDesc": "Get notified about ride updates and promotions",
+        "emailNotifications": "Email Notifications",
+        "emailNotificationsDesc": "Receive receipts and important updates via email",
+        "locationServices": "Location Services",
+        "locationServicesDesc": "Help us find nearby scooters and track rides",
+        "enable": "Enable",
+        "enabled": "Enabled"
+      },
+      "accountActions": {
+        "title": "Account Actions",
+        "description": "Manage your account status and data",
+        "downloadData": "Download My Data",
+        "deactivateAccount": "Deactivate Account",
+        "deleteAccount": "Delete Account",
+        "deleteWarning": "Account deletion is permanent and cannot be undone. All your data will be permanently removed from our systems."
+      }
     }
+  },
+  "Navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "history": "History",
+    "partnerProgram": "Partner Program",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "UserApp": {
+    "welcome": "Welcome back, {name}!",
+    "subtitle": "Manage your Zypp account and rental history",
+    "tabs": {
+      "settings": "Account Settings",
+      "rentalHistory": "Rental History"
+    },
+    "stats": {
+      "totalRides": "Total Rides",
+      "totalTime": "Total Time",
+      "amountSpent": "Amount Spent",
+      "thisMonth": "This month",
+      "ridingTime": "Riding time"
+    },
+    "help": {
+      "title": "Need Help?",
+      "description": "Emergency contact or lost scooter? We're here to help 24/7",
+      "callSupport": "Call Support",
+      "liveChat": "Live Chat"
+    }
+  },
+  "Settings": {
+    "personalInfo": {
+      "title": "Personal Information",
+      "description": "Manage your account details and contact information",
+      "username": "Username",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "address": "Address",
+      "phonePlaceholder": "+33 6 12 34 56 78",
+      "usernamePlaceholder": "johndoe",
+      "addressPlaceholder": "123 Main Street, City, Country",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "emergencyContact": {
+      "title": "Emergency Contact",
+      "description": "Contact information for emergencies during rides",
+      "contactName": "Emergency Contact Name",
+      "contactNamePlaceholder": "Full name of emergency contact",
+      "contactPhone": "Emergency Contact Phone"
+    },
+    "paymentMethods": {
+      "title": "Payment Methods",
+      "description": "Manage your payment options for rides",
+      "expires": "Expires {date}",
+      "remove": "Remove",
+      "addNew": "Add New Payment Method"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "description": "Customize your Zypp experience",
+      "pushNotifications": "Push Notifications",
+      "pushNotificationsDesc": "Get notified about ride updates and promotions",
+      "emailNotifications": "Email Notifications",
+      "emailNotificationsDesc": "Receive receipts and important updates via email",
+      "locationServices": "Location Services",
+      "locationServicesDesc": "Help us find nearby scooters and track rides",
+      "enable": "Enable",
+      "enabled": "Enabled"
+    },
+    "accountActions": {
+      "title": "Account Actions",
+      "description": "Manage your account status and data",
+      "downloadData": "Download My Data",
+      "deactivateAccount": "Deactivate Account",
+      "deleteAccount": "Delete Account",
+      "deleteWarning": "Account deletion is permanent and cannot be undone. All your data will be permanently removed from our systems."
+    }
+  },
+  "RentalHistory": {
+    "title": "Rental History",
+    "description": "View and search through your past rides",
+    "stats": {
+      "totalRides": "Total Rides",
+      "totalDistance": "Total Distance",
+      "totalSpent": "Total Spent"
+    },
+    "filters": {
+      "searchPlaceholder": "Search by location or scooter ID...",
+      "allTime": "All Time",
+      "thisMonth": "This Month",
+      "thisWeek": "This Week"
+    },
+    "ride": {
+      "rideNumber": "Ride #{id}",
+      "route": "Route",
+      "duration": "Duration",
+      "distance": "Distance",
+      "scooter": "Scooter {id}",
+      "receipt": "Receipt",
+      "share": "Share"
+    },
+    "empty": {
+      "title": "No rides found",
+      "description": "Try adjusting your search terms",
+      "noRides": "Start your first ride to see your history here"
+    },
+    "loadMore": "Load More Rides",
+    "export": {
+      "title": "Export History",
+      "description": "Download your rental history for your records",
+      "csv": "Export as CSV",
+      "pdf": "Export as PDF"
+    },
+    "generate": {
+      "button": "Generate Random Rental",
+      "loading": "Generating..."
+    },
+    "loadingMore": "Loading more...",
+    "endOfHistory": "You've reached the end of your rental history"
   },
   "Form": {
     "required": "This field is required",
@@ -76,11 +247,81 @@
     "phoneTooShort": "Phone number must be at least 10 characters",
     "addressTooShort": "Address must be at least 5 characters"
   },
+  "PartnerProgram": {
+    "title": "Partner Program",
+    "subtitle": "Manage your partner stations and earn revenue with Zypp",
+    "requiresInfo": {
+      "title": "Complete Your Profile",
+      "description": "To participate in the partner program, please complete your profile information including first name, last name, email, phone, and address.",
+      "redirectButton": "Go to Settings",
+      "missingFields": "Missing required information: {fields}"
+    },
+    "stats": {
+      "totalStations": "Total Stations",
+      "activeStations": "Active Stations",
+      "totalSlots": "Total Slots",
+      "occupiedSlots": "Occupied Slots"
+    },
+    "stations": {
+      "title": "Your Partner Stations",
+      "description": "Manage your charging stations and view performance metrics",
+      "addNew": "Add New Station",
+      "search": "Search stations...",
+      "status": {
+        "open": "Open",
+        "closed": "Closed"
+      },
+      "actions": {
+        "edit": "Edit",
+        "delete": "Delete",
+        "view": "View Details"
+      }
+    },
+    "addStation": {
+      "title": "Add New Partner Station",
+      "name": "Station Name",
+      "namePlaceholder": "e.g., Main Street Charging Hub",
+      "address": "Address",
+      "addressPlaceholder": "Full street address",
+      "maxSlots": "Maximum Slots",
+      "filledSlots": "Currently Filled Slots",
+      "isOpen": "Station Open",
+      "save": "Save Station",
+      "cancel": "Cancel"
+    },
+    "editStation": {
+      "title": "Edit Partner Station",
+      "save": "Update Station",
+      "cancel": "Cancel"
+    },
+    "deleteStation": {
+      "title": "Delete Station",
+      "description": "Are you sure you want to delete this station? This action cannot be undone.",
+      "confirm": "Delete",
+      "cancel": "Cancel"
+    },
+    "empty": {
+      "title": "No stations found",
+      "description": "Start by adding your first partner station to begin earning revenue.",
+      "addFirst": "Add Your First Station"
+    },
+    "stationCard": {
+      "capacityLabel": "Capacity",
+      "slots": "slots",
+      "address": "Address",
+      "status": "Status",
+      "createdAt": "Created"
+    }
+  },
   "Messages": {
     "loginSuccess": "Successfully signed in!",
     "loginError": "Failed to sign in. Please check your credentials.",
     "signupSuccess": "Account created successfully! Please check your email to verify your account.",
     "signupError": "Failed to create account. Please try again.",
-    "emailAlreadyExists": "An account with this email already exists."
+    "emailAlreadyExists": "An account with this email already exists.",
+    "partnerStationCreated": "Partner station created successfully!",
+    "partnerStationUpdated": "Partner station updated successfully!",
+    "partnerStationDeleted": "Partner station deleted successfully!",
+    "partnerStationError": "Failed to save partner station. Please try again."
   }
 }

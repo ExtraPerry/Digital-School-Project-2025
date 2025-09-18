@@ -67,6 +67,128 @@
       "signIn": "تسجيل الدخول"
     }
   },
+  "Navigation": {
+    "dashboard": "لوحة القيادة",
+    "history": "التاريخ",
+    "partnerProgram": "برنامج الشراكة",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج"
+  },
+  "UserApp": {
+    "welcome": "أهلاً وسهلاً، {name}!",
+    "subtitle": "إدارة حساب Zypp وتاريخ الرحلات",
+    "tabs": {
+      "settings": "إعدادات الحساب",
+      "rentalHistory": "تاريخ الإيجار"
+    },
+    "stats": {
+      "totalRides": "إجمالي الرحلات",
+      "totalTime": "إجمالي الوقت",
+      "amountSpent": "المبلغ المصروف",
+      "thisMonth": "هذا الشهر",
+      "ridingTime": "وقت القيادة"
+    },
+    "help": {
+      "title": "تحتاج مساعدة؟",
+      "description": "اتصال طوارئ أو سكوتر مفقود؟ نحن هنا للمساعدة على مدار الساعة",
+      "callSupport": "اتصل بالدعم",
+      "liveChat": "دردشة مباشرة"
+    }
+  },
+  "Settings": {
+    "personalInfo": {
+      "title": "المعلومات الشخصية",
+      "description": "إدارة تفاصيل حسابك ومعلومات الاتصال",
+      "username": "اسم المستخدم",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "email": "عنوان البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "address": "العنوان",
+      "phonePlaceholder": "+33 6 12 34 56 78",
+      "usernamePlaceholder": "johndoe",
+      "addressPlaceholder": "123 الشارع الرئيسي، المدينة، البلد",
+      "edit": "تعديل",
+      "save": "حفظ",
+      "cancel": "إلغاء"
+    },
+    "emergencyContact": {
+      "title": "جهة اتصال الطوارئ",
+      "description": "معلومات الاتصال للطوارئ أثناء الرحلات",
+      "contactName": "اسم جهة اتصال الطوارئ",
+      "contactNamePlaceholder": "الاسم الكامل لجهة اتصال الطوارئ",
+      "contactPhone": "هاتف جهة اتصال الطوارئ"
+    },
+    "paymentMethods": {
+      "title": "طرق الدفع",
+      "description": "إدارة خيارات الدفع للرحلات",
+      "expires": "تنتهي صلاحيتها في {date}",
+      "remove": "إزالة",
+      "addNew": "إضافة طريقة دفع جديدة"
+    },
+    "preferences": {
+      "title": "التفضيلات",
+      "description": "تخصيص تجربة Zypp الخاصة بك",
+      "pushNotifications": "الإشعارات الفورية",
+      "pushNotificationsDesc": "تلقي إشعارات حول تحديثات الرحلات والعروض",
+      "emailNotifications": "إشعارات البريد الإلكتروني",
+      "emailNotificationsDesc": "استلام الإيصالات والتحديثات المهمة عبر البريد الإلكتروني",
+      "locationServices": "خدمات الموقع",
+      "locationServicesDesc": "مساعدتنا في العثور على السكوترات القريبة وتتبع الرحلات",
+      "enable": "تفعيل",
+      "enabled": "مفعل"
+    },
+    "accountActions": {
+      "title": "إجراءات الحساب",
+      "description": "إدارة حالة حسابك وبياناتك",
+      "downloadData": "تحميل بياناتي",
+      "deactivateAccount": "إلغاء تفعيل الحساب",
+      "deleteAccount": "حذف الحساب",
+      "deleteWarning": "حذف الحساب نهائي ولا يمكن التراجع عنه. ستتم إزالة جميع بياناتك نهائياً من أنظمتنا."
+    }
+  },
+  "RentalHistory": {
+    "title": "تاريخ الإيجار",
+    "description": "عرض والبحث في رحلاتك السابقة",
+    "stats": {
+      "totalRides": "إجمالي الرحلات",
+      "totalDistance": "إجمالي المسافة",
+      "totalSpent": "إجمالي المصروف"
+    },
+    "filters": {
+      "searchPlaceholder": "البحث بالموقع أو معرف السكوتر...",
+      "allTime": "كل الأوقات",
+      "thisMonth": "هذا الشهر",
+      "thisWeek": "هذا الأسبوع"
+    },
+    "ride": {
+      "rideNumber": "رحلة #{id}",
+      "route": "المسار",
+      "duration": "المدة",
+      "distance": "المسافة",
+      "scooter": "سكوتر {id}",
+      "receipt": "إيصال",
+      "share": "مشاركة"
+    },
+    "empty": {
+      "title": "لم يتم العثور على رحلات",
+      "description": "جرب تعديل مصطلحات البحث",
+      "noRides": "ابدأ رحلتك الأولى لرؤية تاريخك هنا"
+    },
+    "loadMore": "تحميل المزيد من الرحلات",
+    "export": {
+      "title": "تصدير التاريخ",
+      "description": "تحميل تاريخ إيجارك لسجلاتك",
+      "csv": "تصدير كـ CSV",
+      "pdf": "تصدير كـ PDF"
+    },
+    "generate": {
+      "button": "إنشاء إيجار عشوائي",
+      "loading": "جاري الإنشاء..."
+    },
+    "loadingMore": "جاري التحميل...",
+    "endOfHistory": "لقد وصلت إلى نهاية تاريخ الإيجار الخاص بك"
+  },
   "Form": {
     "required": "هذا الحقل مطلوب",
     "invalidEmail": "يرجى إدخال بريد إلكتروني صالح",
@@ -75,6 +197,15 @@
     "nameTooShort": "يجب أن يحتوي الاسم على حرفين على الأقل",
     "phoneTooShort": "يجب أن يحتوي رقم الهاتف على 10 أرقام على الأقل",
     "addressTooShort": "يجب أن يحتوي العنوان على 5 أحرف على الأقل"
+  },
+  "PartnerProgram": {
+    "stationCard": {
+      "capacityLabel": "السعة",
+      "slots": "أماكن",
+      "address": "العنوان",
+      "status": "الحالة",
+      "createdAt": "تم الإنشاء"
+    }
   },
   "Messages": {
     "loginSuccess": "تم تسجيل الدخول بنجاح!",

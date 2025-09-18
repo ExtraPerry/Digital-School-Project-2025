@@ -67,6 +67,129 @@
       "signIn": "Conectează-te"
     }
   },
+  "Navigation": {
+    "home": "Acasă",
+    "dashboard": "Tablou de bord",
+    "history": "Istoric",
+    "partnerProgram": "Program de Parteneriat",
+    "settings": "Setări",
+    "logout": "Deconectare"
+  },
+  "UserApp": {
+    "welcome": "Bun venit înapoi, {name}!",
+    "subtitle": "Gestionează-ți contul Zypp și istoricul curselor",
+    "tabs": {
+      "settings": "Setări cont",
+      "rentalHistory": "Istoric închirieri"
+    },
+    "stats": {
+      "totalRides": "Total curse",
+      "totalTime": "Timp total",
+      "amountSpent": "Suma cheltuită",
+      "thisMonth": "Luna aceasta",
+      "ridingTime": "Timp de mers"
+    },
+    "help": {
+      "title": "Ai nevoie de ajutor?",
+      "description": "Contact de urgență sau trotinetă pierdută? Suntem aici să te ajutăm 24/7",
+      "callSupport": "Sună suportul",
+      "liveChat": "Chat live"
+    }
+  },
+  "Settings": {
+    "personalInfo": {
+      "title": "Informații personale",
+      "description": "Gestionează detaliile contului și informațiile de contact",
+      "username": "Nume utilizator",
+      "firstName": "Prenume",
+      "lastName": "Nume",
+      "email": "Adresă email",
+      "phone": "Număr telefon",
+      "address": "Adresă",
+      "phonePlaceholder": "+33 6 12 34 56 78",
+      "usernamePlaceholder": "johndoe",
+      "addressPlaceholder": "123 Strada Principală, Oraș, Țară",
+      "edit": "Editează",
+      "save": "Salvează",
+      "cancel": "Anulează"
+    },
+    "emergencyContact": {
+      "title": "Contact de urgență",
+      "description": "Informații de contact pentru urgențe în timpul curselor",
+      "contactName": "Nume contact de urgență",
+      "contactNamePlaceholder": "Numele complet al contactului de urgență",
+      "contactPhone": "Telefon contact de urgență"
+    },
+    "paymentMethods": {
+      "title": "Metode de plată",
+      "description": "Gestionează opțiunile de plată pentru curse",
+      "expires": "Expiră în {date}",
+      "remove": "Elimină",
+      "addNew": "Adaugă metodă de plată nouă"
+    },
+    "preferences": {
+      "title": "Preferințe",
+      "description": "Personalizează experiența ta Zypp",
+      "pushNotifications": "Notificări push",
+      "pushNotificationsDesc": "Primește notificări despre actualizări și promoții",
+      "emailNotifications": "Notificări email",
+      "emailNotificationsDesc": "Primește chitanțe și actualizări importante prin email",
+      "locationServices": "Servicii de locație",
+      "locationServicesDesc": "Ajută-ne să găsim trotinete în apropiere și să urmăresc cursele",
+      "enable": "Activează",
+      "enabled": "Activat"
+    },
+    "accountActions": {
+      "title": "Acțiuni cont",
+      "description": "Gestionează statusul contului și datele",
+      "downloadData": "Descarcă datele mele",
+      "deactivateAccount": "Dezactivează contul",
+      "deleteAccount": "Șterge contul",
+      "deleteWarning": "Ștergerea contului este permanentă și nu poate fi anulată. Toate datele tale vor fi eliminate permanent din sistemele noastre."
+    }
+  },
+  "RentalHistory": {
+    "title": "Istoric închirieri",
+    "description": "Vezi și caută prin cursele tale anterioare",
+    "stats": {
+      "totalRides": "Total curse",
+      "totalDistance": "Distanță totală",
+      "totalSpent": "Suma totală"
+    },
+    "filters": {
+      "searchPlaceholder": "Caută după locație sau ID trotinetă...",
+      "allTime": "Tot timpul",
+      "thisMonth": "Luna aceasta",
+      "thisWeek": "Săptămâna aceasta"
+    },
+    "ride": {
+      "rideNumber": "Cursa #{id}",
+      "route": "Ruta",
+      "duration": "Durata",
+      "distance": "Distanța",
+      "scooter": "Trotineta {id}",
+      "receipt": "Chitanță",
+      "share": "Distribuie"
+    },
+    "empty": {
+      "title": "Nu s-au găsit curse",
+      "description": "Încearcă să ajustezi termenii de căutare",
+      "noRides": "Începe prima ta cursă pentru a-ți vedea istoricul aici"
+    },
+    "loadMore": "Încarcă mai multe curse",
+    "export": {
+      "title": "Exportă istoricul",
+      "description": "Descarcă istoricul închirierilor pentru înregistrările tale",
+      "csv": "Exportă ca CSV",
+      "pdf": "Exportă ca PDF"
+    },
+    "generate": {
+      "button": "Generează închiriere aleatorie",
+      "loading": "Se generează..."
+    },
+    "loadingMore": "Se încarcă mai multe...",
+    "endOfHistory": "Ai ajuns la sfârșitul istoricului de închirieri"
+  },
   "Form": {
     "required": "Acest câmp este obligatoriu",
     "invalidEmail": "Te rugăm să introduci un email valid",
@@ -75,6 +198,15 @@
     "nameTooShort": "Numele trebuie să aibă cel puțin 2 caractere",
     "phoneTooShort": "Numărul de telefon trebuie să aibă cel puțin 10 caractere",
     "addressTooShort": "Adresa trebuie să aibă cel puțin 5 caractere"
+  },
+  "PartnerProgram": {
+    "stationCard": {
+      "capacityLabel": "Capacitate",
+      "slots": "locuri",
+      "address": "Adresă",
+      "status": "Status",
+      "createdAt": "Creat"
+    }
   },
   "Messages": {
     "loginSuccess": "Conectare reușită!",

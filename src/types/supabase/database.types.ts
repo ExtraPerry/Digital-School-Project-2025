@@ -61,6 +61,7 @@ export type Database = {
       rental_history: {
         Row: {
           created_at: string
+          distance_travelled: number
           end_location: string
           end_time: string
           id: string
@@ -72,6 +73,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          distance_travelled: number
           end_location: string
           end_time: string
           id?: string
@@ -83,6 +85,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          distance_travelled?: number
           end_location?: string
           end_time?: string
           id?: string
@@ -288,7 +291,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      app_roles: "ADMIN" | "DEFAULT_USER"
+      app_roles: "ADMIN" | "DEFAULT_USER" | "PARTNER"
       scooter_status:
         | "IS_AT_STATION"
         | "IS_UNDER_WAY_TO_STATION"
@@ -424,7 +427,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_roles: ["ADMIN", "DEFAULT_USER"],
+      app_roles: ["ADMIN", "DEFAULT_USER", "PARTNER"],
       scooter_status: [
         "IS_AT_STATION",
         "IS_UNDER_WAY_TO_STATION",

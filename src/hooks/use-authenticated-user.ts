@@ -13,7 +13,7 @@ export function useAuthenticatedUser() {
 
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange(() => {
-      queryClient.invalidateQueries({ queryKey: ["users", "id => authenticated"] });
+      queryClient.invalidateQueries({ queryKey: ["users", "id -> authenticated"] });
     });
 
     return () => {
