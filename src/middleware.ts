@@ -9,6 +9,8 @@ const noneAuthenticatedPathnames: Array<string> = [
   "/",
   "/login",
   "/register",
+   "/about",   
+  "/contact", 
 ];
 
 const intlMiddleware = createMiddleware(routing);
