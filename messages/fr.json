@@ -117,6 +117,8 @@
   },
   "Navigation": {
     "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
     "dashboard": "Tableau de bord",
     "history": "Historique",
     "partnerProgram": "Programme Partenaire",

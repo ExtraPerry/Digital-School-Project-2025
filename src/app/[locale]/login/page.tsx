@@ -32,7 +32,7 @@ export default function LoginPage() {
     setIsLoading(true)
     try {
       const result = await login(data)
-      
+
       if (result.error) {
         toast.error(result.error)
       } else {
@@ -48,60 +48,69 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main
+      className="min-h-screen flex items-center justify-center bg-cover bg-center py-12 px-4 sm:px-6 lg:px-8"
+      style={{ backgroundImage: "url('/tr.jpg')" }}
+    >
       <div className="max-w-md w-full space-y-8">
-        <Card>
+        <Card className="bg-gradient-to-br from-slate-900 to-gray-800 text-white shadow-lg border border-white/10">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl text-center">
+            <CardTitle className="text-2xl text-center text-white">
               {t("Pages.Login.title")}
             </CardTitle>
-            <CardDescription className="text-center">
+            <CardDescription className="text-center text-gray-300">
               {t("Pages.Login.subtitle")}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email">{t("Pages.Login.email")}</Label>
+                <Label htmlFor="email" className="text-gray-200">
+                  {t("Pages.Login.email")}
+                </Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="Enter your email"
                   {...register("email")}
                   disabled={isLoading}
+                  className="bg-gray-900/50 border border-gray-700 text-white placeholder-gray-400"
                 />
                 {errors.email && (
-                  <p className="text-sm text-red-600">{errors.email.message}</p>
+                  <p className="text-sm text-red-400">{errors.email.message}</p>
                 )}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">{t("Pages.Login.password")}</Label>
+                <Label htmlFor="password" className="text-gray-200">
+                  {t("Pages.Login.password")}
+                </Label>
                 <Input
                   id="password"
                   type="password"
                   placeholder="Enter your password"
                   {...register("password")}
                   disabled={isLoading}
+                  className="bg-gray-900/50 border border-gray-700 text-white placeholder-gray-400"
                 />
                 {errors.password && (
-                  <p className="text-sm text-red-600">{errors.password.message}</p>
+                  <p className="text-sm text-red-400">{errors.password.message}</p>
                 )}
               </div>
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 disabled={isLoading}
               >
                 {isLoading ? "Signing in..." : t("Pages.Login.signIn")}
               </Button>
 
               <div className="text-center text-sm">
-                <span className="text-gray-600">{t("Pages.Login.noAccount")} </span>
+                <span className="text-gray-300">{t("Pages.Login.noAccount")} </span>
                 <Link
                   href="/register"
-                  className="font-medium text-primary hover:underline"
+                  className="font-medium text-blue-400 hover:underline"
                 >
                   {t("Pages.Login.signUp")}
                 </Link>
@@ -112,4 +121,4 @@ export default function LoginPage() {
       </div>
     </main>
   )
-} 
+}

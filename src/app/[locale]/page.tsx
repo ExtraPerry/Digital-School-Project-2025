@@ -15,7 +15,7 @@ export default function Home() {
 
   const handleSubscribe = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // 👉 Remplace ce console.log/alert par ton appel API (Supabase, etc.)
+    // Remplace ce console.log/alert par ton appel API (Supabase, etc.)
     console.log("Newsletter email:", email);
     alert("Merci ! Vous êtes inscrit(e) à la newsletter.");
     setEmail("");
@@ -113,9 +113,9 @@ export default function Home() {
             {/* Images grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { src: "/mtp1.jfif", alt: "Trottinettes en ville" },
-                { src: "/mtp4.jfif", alt: "Stationnement en zone autorisée" },
-                { src: "/mtp2.jfif", alt: "Application Zypp" },
+                { src: "/mtp1.png", alt: "Trottinettes en ville" },
+                { src: "/mtp4.png", alt: "Stationnement en zone autorisée" },
+                { src: "/mtp2.png", alt: "Application Zypp" },
               ].map((img) => (
                 <div
                   key={img.src}

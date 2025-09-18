@@ -54,7 +54,7 @@ export default function Navbar() {
   }, [isDropdownOpen]);
 
   const handleLogin = () => {
-    router.push("/login");
+    router.push("/login"); // ✅ uniquement pour le bouton "Se connecter"
   };
 
   const handleLogout = async () => {
@@ -68,7 +68,7 @@ export default function Navbar() {
           {/* Logo/Brand */}
           <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <Image
-              src="/zypplogo.svg" // ⚠️ mets ton fichier ici
+              src="/zypplogo.svg"
               alt="Zypp Logo"
               width={65}
               height={65}
@@ -88,6 +88,36 @@ export default function Navbar() {
               <div className="flex items-center space-x-6">
                 {/* Navigation Links */}
                 <div className="hidden md:flex items-center space-x-1">
+                  <Link href="/about">
+                    <Button
+                      variant={isActivePath("/about") ? "default" : "ghost"}
+                      size="sm"
+                      className={isActivePath("/about") 
+                        ? "bg-blue-600 text-white hover:bg-blue-700" 
+                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                      }
+                      >
+                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {tNav("about")}
+                      </Button>
+                  </Link>
+                  <Link href="/contact">
+                    <Button
+                      variant={isActivePath("/contact") ? "default" : "ghost"}
+                      size="sm"
+                      className={isActivePath("/contact") 
+                        ? "bg-blue-600 text-white hover:bg-blue-700" 
+                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                      }
+                      >
+                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        {tNav("contact")}
+                      </Button>
+                  </Link>
                   <Link href="/rental-history">
                     <Button
                       variant={isActivePath("/rental-history") ? "default" : "ghost"}
@@ -173,7 +203,7 @@ export default function Navbar() {
                       <div className="py-1">
                         <Link href="/" onClick={handleDropdownItemClick}>
                           <div className={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
-                            isActivePath("/") && !isActivePath("/rental-history") && !isActivePath("/partner-program") && !isActivePath("/settings")
+                            isActivePath("/") && !isActivePath("/about") && !isActivePath("/contact") && !isActivePath("/rental-history") && !isActivePath("/partner-program") && !isActivePath("/settings")
                               ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400" 
                               : "text-gray-700 dark:text-gray-300"
                           }`}>
@@ -182,6 +212,34 @@ export default function Navbar() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                               </svg>
                               {tNav("home")}
+                            </div>
+                          </div>
+                        </Link>
+                        <Link href="/about" onClick={handleDropdownItemClick}>
+                          <div className={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                            isActivePath("/about") 
+                              ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400" 
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}>
+                            <div className="flex items-center">
+                              <svg className="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              {tNav("about")}
+                            </div>
+                          </div>
+                        </Link>
+                        <Link href="/contact" onClick={handleDropdownItemClick}>
+                          <div className={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                            isActivePath("/contact") 
+                              ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400" 
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}>
+                            <div className="flex items-center">
+                              <svg className="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                              </svg>
+                              {tNav("contact")}
                             </div>
                           </div>
                         </Link>
@@ -234,12 +292,49 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <Button
-                onClick={handleLogin}
-                className="bg-blue-600 hover:bg-blue-700 text-white"
-              >
-                {tPages("Login.signIn")}
-              </Button>
+              <div className="flex items-center space-x-4">
+                {/* Public Navigation Links */}
+                <div className="hidden md:flex items-center space-x-1">
+                  <Link href="/about">
+                    <Button
+                      variant={isActivePath("/about") ? "default" : "ghost"}
+                      size="sm"
+                      className={isActivePath("/about") 
+                        ? "bg-blue-600 text-white hover:bg-blue-700" 
+                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                      }
+                    >
+                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {tNav("about")}
+                    </Button>
+                  </Link>
+                  <Link href="/contact">
+                    <Button
+                      variant={isActivePath("/contact") ? "default" : "ghost"}
+                      size="sm"
+                      className={isActivePath("/contact") 
+                        ? "bg-blue-600 text-white hover:bg-blue-700" 
+                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                      }
+                    >
+                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      {tNav("contact")}
+                    </Button>
+                  </Link>
+                </div>
+                
+                {/* Login Button */}
+                <Button
+                  onClick={handleLogin}
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  {tPages("Login.signIn")}
+                </Button>
+              </div>
             )}
           </div>
         </div>

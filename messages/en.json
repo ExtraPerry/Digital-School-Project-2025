@@ -117,6 +117,8 @@
   },
   "Navigation": {
     "home": "Home",
+    "about": "About",
+    "contact": "Contact",
     "dashboard": "Dashboard",
     "history": "History",
     "partnerProgram": "Partner Program",

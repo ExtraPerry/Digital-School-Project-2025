@@ -68,6 +68,9 @@
     }
   },
   "Navigation": {
+    "home": "الرئيسية",
+    "about": "حولنا",
+    "contact": "اتصل بنا",
     "dashboard": "لوحة القيادة",
     "history": "التاريخ",
     "partnerProgram": "برنامج الشراكة",

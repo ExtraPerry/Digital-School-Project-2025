@@ -69,6 +69,8 @@
   },
   "Navigation": {
     "home": "Acasă",
+    "about": "Despre",
+    "contact": "Contact",
     "dashboard": "Tablou de bord",
     "history": "Istoric",
     "partnerProgram": "Program de Parteneriat",
