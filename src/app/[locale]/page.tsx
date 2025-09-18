@@ -31,7 +31,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/zy.png"
+            src="/fonthome.png"
             alt="Zypp Background"
             fill
             priority
