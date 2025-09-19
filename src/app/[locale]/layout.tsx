@@ -10,6 +10,7 @@ import { getTranslations } from "next-intl/server";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/sonner";
+import { CookieBanner } from "@/components/cookie-banner";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -58,6 +59,7 @@ export default async function LocaleLayout({
             >
               {children}
               <Toaster />
+              <CookieBanner />
               <ReactQueryDevtools initialIsOpen={false} />
             </ThemeProvider>
           </NextIntlClientProvider>

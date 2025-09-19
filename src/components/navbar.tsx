@@ -1,20 +1,146 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useAuthenticatedUser } from "@/hooks/use-authenticated-user";
 import logout from "@/lib/supabase/auth/logout";
 import { Tables } from "@/types/supabase/database.types";
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter as useI18nRouter } from "@/i18n/navigation";
+
+// Public navigation links component
+const PublicNavLinks = ({ isActivePath, tNav }: { isActivePath: (path: string) => boolean; tNav: (key: string) => string }) => (
+  <div className="hidden md:flex items-center space-x-1">
+    <Link href="/about">
+      <Button
+        variant={isActivePath("/about") ? "default" : "ghost"}
+        size="sm"
+        className={isActivePath("/about") 
+          ? "bg-blue-600 text-white hover:bg-blue-700" 
+          : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+        }
+      >
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        {tNav("about")}
+      </Button>
+    </Link>
+    <Link href="/contact">
+      <Button
+        variant={isActivePath("/contact") ? "default" : "ghost"}
+        size="sm"
+        className={isActivePath("/contact") 
+          ? "bg-blue-600 text-white hover:bg-blue-700" 
+          : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+        }
+      >
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        {tNav("contact")}
+      </Button>
+    </Link>
+  </div>
+);
+
+// Language dropdown component
+const LanguageDropdown = ({ tLanguages }: { tLanguages: (key: string) => string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const locale = useLocale();
+  const router = useI18nRouter();
+  const pathname = usePathname();
+
+  const languages = [
+    { code: 'en', name: tLanguages('en') },
+    { code: 'fr', name: tLanguages('fr') },
+    { code: 'ar', name: tLanguages('ar') },
+    { code: 'ro', name: tLanguages('ro') }
+  ];
+
+  const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const handleLanguageChange = (newLocale: string) => {
+    // Remove the current locale from the pathname to avoid double locale in URL
+    const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
+    router.push(pathWithoutLocale, { locale: newLocale });
+    setIsOpen(false);
+  };
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={() => setIsOpen(!isOpen)}
+        className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+      >
+        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+        </svg>
+        <span className="hidden md:inline">{currentLanguage.name}</span>
+        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </Button>
+
+      {isOpen && (
+        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 z-50">
+          <div className="py-1">
+            {languages.map((language) => (
+              <button
+                key={language.code}
+                onClick={() => handleLanguageChange(language.code)}
+                className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                  language.code === locale
+                    ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400"
+                    : "text-gray-700 dark:text-gray-300"
+                }`}
+              >
+                <div className="flex items-center">
+                  <span className="mr-3 text-lg">
+                    {language.code === 'en' && '🇺🇸'}
+                    {language.code === 'fr' && '🇫🇷'}
+                    {language.code === 'ar' && '🇸🇦'}
+                    {language.code === 'ro' && '🇷🇴'}
+                  </span>
+                  {language.name}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const tNav = useTranslations("Navigation");
   const tPages = useTranslations("Pages");
+  const tLanguages = useTranslations("Languages");
   const router = useRouter();
   const pathname = usePathname();
   const { data: user, isLoading } = useAuthenticatedUser() as { 
@@ -82,42 +208,91 @@ export default function Navbar() {
 
           {/* Navigation and Auth section */}
           <div className="flex items-center space-x-4">
+            {/* Always show public navigation links */}
+            <PublicNavLinks isActivePath={isActivePath} tNav={tNav} />
+            
             {isLoading ? (
-              <div className="w-32 h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+              <div className="flex items-center space-x-4">
+                <div className="w-32 h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                
+                {/* Language dropdown */}
+                <LanguageDropdown tLanguages={tLanguages} />
+                
+                {/* Mobile Navigation Dropdown for loading state */}
+                <div className="md:hidden relative" ref={dropdownRef}>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={handleDropdownToggle}
+                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </Button>
+
+                  {/* Dropdown Menu for loading state */}
+                  {isDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 z-50">
+                      <div className="py-1">
+                        <Link href="/" onClick={handleDropdownItemClick}>
+                          <div className={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                            isActivePath("/") && !isActivePath("/about") && !isActivePath("/contact")
+                              ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400" 
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}>
+                            <div className="flex items-center">
+                              <svg className="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                              </svg>
+                              {tNav("home")}
+                            </div>
+                          </div>
+                        </Link>
+                        <Link href="/about" onClick={handleDropdownItemClick}>
+                          <div className={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                            isActivePath("/about") 
+                              ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400" 
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}>
+                            <div className="flex items-center">
+                              <svg className="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              {tNav("about")}
+                            </div>
+                          </div>
+                        </Link>
+                        <Link href="/contact" onClick={handleDropdownItemClick}>
+                          <div className={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                            isActivePath("/contact") 
+                              ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400" 
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}>
+                            <div className="flex items-center">
+                              <svg className="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                              </svg>
+                              {tNav("contact")}
+                            </div>
+                          </div>
+                        </Link>
+                        <div className="border-t border-gray-200 dark:border-gray-600 my-1"></div>
+                        <div className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                          {tNav("language")}
+                        </div>
+                        <div className="px-4 py-2">
+                          <LanguageDropdown tLanguages={tLanguages} />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
             ) : user ? (
               <div className="flex items-center space-x-6">
-                {/* Navigation Links */}
+                {/* Additional Navigation Links for authenticated users */}
                 <div className="hidden md:flex items-center space-x-1">
-                  <Link href="/about">
-                    <Button
-                      variant={isActivePath("/about") ? "default" : "ghost"}
-                      size="sm"
-                      className={isActivePath("/about") 
-                        ? "bg-blue-600 text-white hover:bg-blue-700" 
-                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                      }
-                      >
-                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {tNav("about")}
-                      </Button>
-                  </Link>
-                  <Link href="/contact">
-                    <Button
-                      variant={isActivePath("/contact") ? "default" : "ghost"}
-                      size="sm"
-                      className={isActivePath("/contact") 
-                        ? "bg-blue-600 text-white hover:bg-blue-700" 
-                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                      }
-                      >
-                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                        {tNav("contact")}
-                      </Button>
-                  </Link>
                   <Link href="/rental-history">
                     <Button
                       variant={isActivePath("/rental-history") ? "default" : "ghost"}
@@ -183,6 +358,9 @@ export default function Navbar() {
                     <span className="hidden md:inline">{tNav("logout")}</span>
                   </Button>
                 </div>
+
+                {/* Language dropdown */}
+                <LanguageDropdown tLanguages={tLanguages} />
 
                 {/* Mobile Navigation Dropdown */}
                 <div className="md:hidden relative" ref={dropdownRef}>
@@ -293,40 +471,6 @@ export default function Navbar() {
               </div>
             ) : (
               <div className="flex items-center space-x-4">
-                {/* Public Navigation Links */}
-                <div className="hidden md:flex items-center space-x-1">
-                  <Link href="/about">
-                    <Button
-                      variant={isActivePath("/about") ? "default" : "ghost"}
-                      size="sm"
-                      className={isActivePath("/about") 
-                        ? "bg-blue-600 text-white hover:bg-blue-700" 
-                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                      }
-                    >
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      {tNav("about")}
-                    </Button>
-                  </Link>
-                  <Link href="/contact">
-                    <Button
-                      variant={isActivePath("/contact") ? "default" : "ghost"}
-                      size="sm"
-                      className={isActivePath("/contact") 
-                        ? "bg-blue-600 text-white hover:bg-blue-700" 
-                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                      }
-                    >
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                      {tNav("contact")}
-                    </Button>
-                  </Link>
-                </div>
-                
                 {/* Login Button */}
                 <Button
                   onClick={handleLogin}
@@ -334,6 +478,80 @@ export default function Navbar() {
                 >
                   {tPages("Login.signIn")}
                 </Button>
+                
+                {/* Language dropdown */}
+                <LanguageDropdown tLanguages={tLanguages} />
+                
+                {/* Mobile Navigation Dropdown for non-authenticated state */}
+                <div className="md:hidden relative" ref={dropdownRef}>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={handleDropdownToggle}
+                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </Button>
+
+                  {/* Dropdown Menu for non-authenticated state */}
+                  {isDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 z-50">
+                      <div className="py-1">
+                        <Link href="/" onClick={handleDropdownItemClick}>
+                          <div className={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                            isActivePath("/") && !isActivePath("/about") && !isActivePath("/contact")
+                              ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400" 
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}>
+                            <div className="flex items-center">
+                              <svg className="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                              </svg>
+                              {tNav("home")}
+                            </div>
+                          </div>
+                        </Link>
+                        <Link href="/about" onClick={handleDropdownItemClick}>
+                          <div className={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                            isActivePath("/about") 
+                              ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400" 
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}>
+                            <div className="flex items-center">
+                              <svg className="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              {tNav("about")}
+                            </div>
+                          </div>
+                        </Link>
+                        <Link href="/contact" onClick={handleDropdownItemClick}>
+                          <div className={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                            isActivePath("/contact") 
+                              ? "bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-400" 
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}>
+                            <div className="flex items-center">
+                              <svg className="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                              </svg>
+                              {tNav("contact")}
+                            </div>
+                          </div>
+                        </Link>
+                        <div className="border-t border-gray-200 dark:border-gray-600 my-1"></div>
+                        <div className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                          {tNav("language")}
+                        </div>
+                        <div className="px-4 py-2">
+                          <LanguageDropdown tLanguages={tLanguages} />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>

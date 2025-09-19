@@ -113,6 +113,54 @@
         "deleteAccount": "Delete Account",
         "deleteWarning": "Account deletion is permanent and cannot be undone. All your data will be permanently removed from our systems."
       }
+    },
+    "About": {
+      "title": "About",
+      "subtitle": "At Zypp Mobility, we believe it's time to rethink urban mobility.",
+      "mission": {
+        "title": "Our mission",
+        "description": "offer all Montpellier residents a simple, fast and ecological means of transport thanks to an electric scooter service available 24/7 without a docking station."
+      },
+      "launch": {
+        "date": "January 2025",
+        "fleet": "1000 scooters",
+        "price": "from €1",
+        "description": "a fleet of 1000 scooters will be deployed in the city, accessible from €1, directly from your smartphone. Once your journey is over, simply drop off the scooter in a dedicated area and lock it via the app."
+      },
+      "sustainability": {
+        "description": "Because we also think about the future of our planet, we have set up an intelligent charging and maintenance system, carried out at night. We also collaborate with individuals who want to participate in the adventure by charging scooters at home, in exchange for remuneration or discounts."
+      },
+      "ambition": {
+        "title": "Our ambition",
+        "goals": [
+          "Make urban mobility more practical",
+          "Make it more affordable",
+          "And sustainable for the planet"
+        ]
+      },
+      "conclusion": "With Zypp Mobility, freedom is just one click away."
+    },
+    "Contact": {
+      "title": "Contact us",
+      "subtitle": "A question, a project or need assistance? Our team is here to help you.",
+      "address": {
+        "title": "📍 Address",
+        "value": "2 rue du Faubourg Saint-Honoré\n34000 Montpellier, France"
+      },
+      "phone": {
+        "title": "📞 Phone",
+        "value": "+33 (0)4 67 12 34 56"
+      },
+      "email": {
+        "title": "✉️ Email",
+        "value": "contact@zyppmobility.com"
+      },
+      "hours": {
+        "title": "🕒 Hours",
+        "weekdays": "Monday – Friday: 9:00 AM – 6:00 PM",
+        "saturday": "Saturday: 10:00 AM – 2:00 PM",
+        "sunday": "Sunday: Closed"
+      }
     }
   },
   "Navigation": {
@@ -123,7 +171,15 @@
     "history": "History",
     "partnerProgram": "Partner Program",
     "settings": "Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "language": "Language",
+    "selectLanguage": "Select Language"
+  },
+  "Languages": {
+    "en": "English",
+    "fr": "Français",
+    "ar": "العربية",
+    "ro": "Română"
   },
   "UserApp": {
     "welcome": "Welcome back, {name}!",
@@ -325,5 +381,12 @@
     "partnerStationUpdated": "Partner station updated successfully!",
     "partnerStationDeleted": "Partner station deleted successfully!",
     "partnerStationError": "Failed to save partner station. Please try again."
+  },
+  "CookieBanner": {
+    "title": "Cookie Preferences",
+    "description": "We use cookies to enhance your browsing experience and analyze our traffic. You can choose to accept all cookies or only necessary cookies. Note that we only use necessary cookies for the proper functioning of our service.",
+    "acceptAll": "Accept All",
+    "acceptNecessary": "Necessary Only",
+    "close": "Close"
   }
 }

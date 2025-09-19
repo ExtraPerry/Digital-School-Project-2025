@@ -65,6 +65,54 @@
       "createAccount": "Creează contul",
       "hasAccount": "Ai deja un cont?",
       "signIn": "Conectează-te"
+    },
+    "About": {
+      "title": "Despre",
+      "subtitle": "La Zypp Mobility, credem că a venit timpul să regândim mobilitatea urbană.",
+      "mission": {
+        "title": "Misiunea noastră",
+        "description": "să oferim tuturor locuitorilor din Montpellier un mijloc de transport simplu, rapid și ecologic prin serviciul de trotinete electrice disponibil 24/24 fără stație de andocare."
+      },
+      "launch": {
+        "date": "ianuarie 2025",
+        "fleet": "1000 de trotinete",
+        "price": "de la 1€",
+        "description": "un parc de 1000 de trotinete va fi implementat în oraș, accesibil de la 1€, direct de pe smartphone-ul tău. Odată ce călătoria ta s-a terminat, trebuie doar să depui trotineta într-o zonă dedicată și să o blochezi prin aplicație."
+      },
+      "sustainability": {
+        "description": "Pentru că ne gândim și la viitorul planetei noastre, am implementat un sistem inteligent de încărcare și întreținere, realizat noaptea. Colaborăm și cu persoane fizice care doresc să participe la aventură prin încărcarea trotinetelor acasă, în schimbul unei remunerații sau reduceri."
+      },
+      "ambition": {
+        "title": "Ambiția noastră",
+        "goals": [
+          "Să facem mobilitatea urbană mai practică",
+          "Să o facem mai accesibilă",
+          "Și durabilă pentru planetă"
+        ]
+      },
+      "conclusion": "Cu Zypp Mobility, libertatea este la un click distanță."
+    },
+    "Contact": {
+      "title": "Contactează-ne",
+      "subtitle": "O întrebare, un proiect sau ai nevoie de asistență? Echipa noastră este aici să te ajute.",
+      "address": {
+        "title": "📍 Adresa",
+        "value": "2 rue du Faubourg Saint-Honoré\n34000 Montpellier, France"
+      },
+      "phone": {
+        "title": "📞 Telefon",
+        "value": "+33 (0)4 67 12 34 56"
+      },
+      "email": {
+        "title": "✉️ Email",
+        "value": "contact@zyppmobility.com"
+      },
+      "hours": {
+        "title": "🕒 Program",
+        "weekdays": "Luni – Vineri: 9:00 – 18:00",
+        "saturday": "Sâmbătă: 10:00 – 14:00",
+        "sunday": "Duminică: Închis"
+      }
     }
   },
   "Navigation": {
@@ -75,7 +123,15 @@
     "history": "Istoric",
     "partnerProgram": "Program de Parteneriat",
     "settings": "Setări",
-    "logout": "Deconectare"
+    "logout": "Deconectare",
+    "language": "Limbă",
+    "selectLanguage": "Selectează limba"
+  },
+  "Languages": {
+    "en": "English",
+    "fr": "Français",
+    "ar": "العربية",
+    "ro": "Română"
   },
   "UserApp": {
     "welcome": "Bun venit înapoi, {name}!",
@@ -216,5 +272,12 @@
     "signupSuccess": "Cont creat cu succes! Verifică emailul pentru confirmare.",
     "signupError": "Eroare la crearea contului. Încearcă din nou.",
     "emailAlreadyExists": "Există deja un cont cu acest email."
+  },
+  "CookieBanner": {
+    "title": "Preferințe Cookie-uri",
+    "description": "Folosim cookie-uri pentru a îmbunătăți experiența de navigare și pentru a analiza traficul nostru. Poți alege să accepți toate cookie-urile sau doar cele necesare. Reține că folosim doar cookie-uri necesare pentru funcționarea corectă a serviciului nostru.",
+    "acceptAll": "Acceptă Toate",
+    "acceptNecessary": "Doar Necesare",
+    "close": "Închide"
   }
 }

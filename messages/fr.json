@@ -113,6 +113,54 @@
         "deleteAccount": "Supprimer le compte",
         "deleteWarning": "La suppression du compte est permanente et ne peut pas être annulée. Toutes vos données seront définitivement supprimées de nos systèmes."
       }
+    },
+    "About": {
+      "title": "À propos",
+      "subtitle": "Chez Zypp Mobilty, nous croyons qu'il est temps de repenser la mobilité urbaine.",
+      "mission": {
+        "title": "Notre mission",
+        "description": "offrir à tous les habitants de Montpellier un moyen de transport simple, rapide et écologique grâce à un service de trottinettes électriques disponibles 24h/24 et sans borne d'attache."
+      },
+      "launch": {
+        "date": "janvier 2025",
+        "fleet": "1000 trottinettes",
+        "price": "à partir de 1€",
+        "description": "un parc de 1000 trottinettes sera déployé dans la ville, accessible à partir de 1€, directement depuis votre smartphone. Une fois votre trajet terminé, il vous suffira de déposer la trottinette dans une zone dédiée et de la verrouiller via l'application."
+      },
+      "sustainability": {
+        "description": "Parce que nous pensons aussi à l'avenir de notre planète, nous avons mis en place un système intelligent de recharge et d'entretien, réalisé la nuit. Nous collaborons également avec des particuliers qui souhaitent participer à l'aventure en rechargeant les trottinettes chez eux, en échange d'une rémunération ou de réductions."
+      },
+      "ambition": {
+        "title": "Notre ambition",
+        "goals": [
+          "Rendre la mobilité urbaine plus pratique",
+          "La rendre plus abordable",
+          "Et durable pour la planète"
+        ]
+      },
+      "conclusion": "Avec Zypp Mobility, la liberté se prend en un clic."
+    },
+    "Contact": {
+      "title": "Contactez-nous",
+      "subtitle": "Une question, un projet ou besoin d'assistance ? Notre équipe est là pour vous aider.",
+      "address": {
+        "title": "📍 Adresse",
+        "value": "2 rue du Faubourg Saint-Honoré\n34000 Montpellier, France"
+      },
+      "phone": {
+        "title": "📞 Téléphone",
+        "value": "+33 (0)4 67 12 34 56"
+      },
+      "email": {
+        "title": "✉️ Email",
+        "value": "contact@zyppmobility.com"
+      },
+      "hours": {
+        "title": "🕒 Horaires",
+        "weekdays": "Lundi – Vendredi : 9h00 – 18h00",
+        "saturday": "Samedi : 10h00 – 14h00",
+        "sunday": "Dimanche : Fermé"
+      }
     }
   },
   "Navigation": {
@@ -123,7 +171,15 @@
     "history": "Historique",
     "partnerProgram": "Programme Partenaire",
     "settings": "Paramètres",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "language": "Langue",
+    "selectLanguage": "Sélectionner la langue"
+  },
+  "Languages": {
+    "en": "English",
+    "fr": "Français",
+    "ar": "العربية",
+    "ro": "Română"
   },
   "UserApp": {
     "welcome": "Bon retour, {name} !",
@@ -325,5 +381,12 @@
     "partnerStationUpdated": "Station partenaire mise à jour avec succès !",
     "partnerStationDeleted": "Station partenaire supprimée avec succès !",
     "partnerStationError": "Échec de l'enregistrement de la station partenaire. Veuillez réessayer."
+  },
+  "CookieBanner": {
+    "title": "Préférences de Cookies",
+    "description": "Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre trafic. Vous pouvez choisir d'accepter tous les cookies ou seulement les cookies nécessaires. Notez que nous n'utilisons que des cookies nécessaires au bon fonctionnement de notre service.",
+    "acceptAll": "Tout Accepter",
+    "acceptNecessary": "Nécessaires Seulement",
+    "close": "Fermer"
   }
 }
